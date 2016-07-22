@@ -1,0 +1,73 @@
+<navbar>
+  <md-toolbar>
+    <div class="md-toolbar-tools" style="background-color: #351F39;">
+      <md-button ui-sref="home" style="font-size: 1em; padding-left: 1.5em;">ng-spotify</md-button>
+      <div flex></div>
+      <md-button ng-click="logOutUser()" style="font-size: 1em; padding-left: 1.5em;">Log Out</md-button>
+    </div>
+  </md-toolbar>
+</navbar>
+
+<div>
+  <p style="text-align: center; font-size: 5em; margin-bottom: 0.25em; font-weight: 700; color: #351F39;">Discover. New. Music.</p>
+</div>
+
+
+<div>
+ <center>
+    <md-input-container flex style="width: 50%;">
+      <input type="text" placeholder="Search for an artist" ng-keyup="searchArtist()" ng-model="searchStr">
+    </md-input-container>
+  </center>
+</div>
+
+<div ng-if="artistResults && searchStr" style="margin-top: -2.8em;">
+  <div ng-repeat="artist in artistResults | limitTo: 8" style="background: #709FB0; opacity: 0.7; width: 50%; margin: 0 auto; cursor: pointer;">
+    <p ng-click="goToArtist(artist)" layout-padding style="text-align: center; margin: 0; border: black 1px solid;">{{artist.name}}</p>
+  </div>
+</div>
+
+<div ng-if="currentArtist.name && !searchStr.length"> 
+  <div layout-align="center center" layout-padding>
+    <p style="font-size: 3em; margin-top: -0.25em; margin-bottom: 0; text-align: center;">Trending tracks for: <span ng-click="goToSpotifyPage()" style="color: #709FB0; cursor: pointer;">{{currentArtist.name}}</span></p>
+  </div>
+  <!-- <div> -->
+    <!-- <div ng-repeat="album in currentArtistAlbums">
+      <center>
+        <div ng-click="albumDetails(album)" style="cursor: pointer;">
+          <img ng-src="{{album.images[0].url}}" style="height: 200px; width: 200px;">
+          <div>{{album.name}}</div>
+       </div>
+      </center>
+    </div> -->
+  <!-- </div> -->
+</div>
+
+<div ng-if="currentArtist.name && !searchStr.length" ng-repeat="track in artistTopTracks | limitTo: 3">
+  <center>
+    <div ng-click="isPlaying() ? stopTrack(track) : playTrack(track)" layout-padding style="cursor: pointer; font-size: 1.5em;">{{track.name}}</div>
+  </center>
+</div>
+
+<div ng-if="currentArtist.name && !searchStr.length" >
+  <center>
+    <p style="font-size: 2em;">You also might like</p>
+    <div ng-repeat="person in relatedArtists | limitTo: 3">
+      <p ng-click="goToArtist(person)" layout-padding style="cursor: pointer; font-size: 1.5em;">{{person.name}}</p>
+    </div>
+  </center>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

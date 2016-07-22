@@ -1,0 +1,37 @@
+<section current-auth="$resolve.currentAuth">
+  <navbar>
+    <md-toolbar>
+      <div class="md-toolbar-tools" style="background-color: #1E1F26;">
+        <md-button style="font-size: 1em; padding-left: 1.5em;">ng-spotify</md-button>
+      </div>
+    </md-toolbar>
+  </navbar>
+
+
+<md-content>
+  <section layout-padding>
+    <div layout="column">
+        <md-button class="md-raised login-button" ng-click="oauthLogin('facebook')" style="border-radius: 2em; background-color: #3b5998; color: #FFFFFF; width: 20em; margin: auto;">
+         LOGIN WITH FACEBOOK
+        </md-button>
+        <div layout-padding></div>
+        <md-button class="md-raised login-button" ng-click="oauthLogin('twitter')" style="border-radius: 2em; background-color: #4183c4; color: #FFFFFF; width: 20em; margin: auto;">
+         LOGIN WITH TWITTER
+        </md-button>
+        <div layout-padding></div>
+        <md-button class="md-raised login-button" ng-click="oauthLogin('github')" style="border-radius: 2em; background-color: #333333; color: #FFFFFF; width: 20em; margin: auto;">
+         LOGIN WITH GITHUB
+        </md-button>
+        <div layout-padding></div>
+        <md-button class="md-raised login-button" ng-click="oauthLogin('google')" style="border-radius: 2em; background-color: #d50f25; color: #FFFFFF; width: 20em; margin: auto;">
+         LOGIN WITH GOOGLE
+        </md-button>
+        <div layout-padding></div>
+        <md-button class="md-raised login-button" ng-click="anonymousLogin()" style="border-radius: 2em; background-color: green; color: #FFFFFF; width: 20em; margin: auto;">
+         LOGIN AS GUEST
+        </md-button>
+    </div>
+  </section>
+</md-content>
+
+</section>
